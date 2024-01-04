@@ -1,0 +1,32 @@
+{% extends 'food/base.html' %}
+{% load widget_tweaks %}
+
+
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'styleLogin.css' %}">
+{% endblock %}
+
+{% block base %}
+<div class="form-container">
+	<p class="title">Login</p>
+	<form method="POST" class="form">
+    {% csrf_token %}
+		<div class="input-group">
+			<label for="username">Username</label>
+      		{{ form.username|add_class:"control" }}
+		</div>
+		<div class="input-group">
+			<label for="password">Password</label>
+      		{{ form.password }}
+		</div>
+		<button type="submit" class="sign">Login</button>
+	</form>
+</div>
+
+
+{% endblock %}
+
+
+
+

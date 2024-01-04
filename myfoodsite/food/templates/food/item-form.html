@@ -1,0 +1,36 @@
+{% extends 'food/base.html' %}
+{% load widget_tweaks %}
+
+
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'styleLogin.css' %}">
+{% endblock %}
+
+{% block base %}
+
+<div class="form-container">
+  <p class="title">Add item</p>
+	<form class="form" method="POST">
+    {% csrf_token %}
+		<div class="input-group">
+			<label for="item_name">item's name</label>
+      {{ form.item_name }}
+		</div>
+    <div class="input-group">
+			<label for="item_desc">item's description</label>
+      {{ form.item_desc }}
+		</div>
+		<div class="input-group">
+			<label for="item_price">item's price</label>
+      {{ form.item_price }}
+		</div>
+    <div class="input-group">
+			<label for="item_image">item's image URL</label>
+      {{ form.item_image }}
+		</div>
+		<button class="sign">Add</button>
+  </form>
+</div>
+
+{% endblock %}
